@@ -1,0 +1,18 @@
+doctype
+
+p
+    p=message
+        button
+            a(style={color:'black'} href="/maintenance/") Home
+        h1= "crée un nouveau ticket"
+        form(action="" method="POST")
+                p nom de l'attraction
+                each val in attraction
+                    input(type="radio" id=val.id name="attraction_id" value=val.id required="required" )
+                    label(for=val.public_name)= val.public_name
+                p nature de l'incident:
+                input(type="text" name="nature" required="required")
+                p technicien en charge:
+                input(type="text" name="technicien_assigned" required="required")
+                p
+                input(type="submit")

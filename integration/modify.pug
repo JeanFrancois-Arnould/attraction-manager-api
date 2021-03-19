@@ -1,0 +1,38 @@
+doctype
+
+p
+    button
+        a(style={color:'black'} href="/maintenance/") Home
+    table(style='width:80%', border='1')
+        tr 
+            th numéro d'incident
+            th nature
+            th technicien
+            th attraction
+                each val in incident
+                    tr(style='text-align: center')
+                        td= val.incident_number
+                        td= val.nature
+                        td= val.technician_assigned
+                        td=val.public_name
+                        if (val.resolution_date)
+                            td= val.resolution_date.toLocaleDateString('fr-FR', options)
+
+    h1= "modifier le ticket"
+    form(action="" method="POST")
+            input(style='visibility: hidden' type="text" name="id" value=incident[0].id)
+            input(style='visibility: hidden' type="text" name="incident_number" value=incident[0].incident_number)
+            p nature de l'incident:
+            input(type="text" name="title" value=incident[0].nature)
+            p technicien en charge:
+            input(type="text" name="technicien" value=incident[0].technician_assigned)
+            p date de resolution:
+            input(type="text" name="resolutionDate" placeholder="2021-02-08")
+            p
+            input(type="submit")
+    p
+    button
+        a(style={color:'black'} href="/maintenance/new-incident") crée un nouveau ticket
+    p
+    button
+        a(style={color:'black'} href='/maintenance/incident-del/' + incident[0].id) suprimer 

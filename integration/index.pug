@@ -1,0 +1,42 @@
+doctype
+
+h1 listes des problèmes en cours
+button
+    a(style={color:'black'} href="/maintenance/new-incident") crée un nouveau ticket
+p
+table(style='width:80%', border='1', text-align= 'center', background-color= 'green')
+        tr 
+            th numéro d'incident
+            th nature
+            th technicien
+            th date de résolution
+            th lien
+                each val in incidents
+                    if (!val.resolution_date)
+                        tr(style="background:#f28a8a;text-align:center;")
+                            td= val.incident_number 
+                            td= val.nature
+                            td= val.technician_assigned
+                            if (val.resolution_date)
+                                td= val.resolution_date.toLocaleDateString('fr-FR', options)
+                            else 
+                                td
+                            td
+                                a(style={color:'black'} href="/maintenance/incident/" + val.id) modifier
+                            td
+                                button
+                                    a(style={color:'black'} href='/maintenance/incident-del/' + val.id) suprimer
+                    if (val.resolution_date)
+                        tr(style="background:#529e38;text-align:center;")
+                            td= val.incident_number 
+                            td= val.nature
+                            td= val.technician_assigned
+                            if (val.resolution_date)
+                                td= val.resolution_date.toLocaleDateString('fr-FR', options)
+                            else 
+                                td
+                            td
+                                a(style={color:'black'} href="/maintenance/incident/" + val.id) more information
+                            td
+                                button
+                                    a(style={color:'black'} href='/maintenance/incident-del/' + val.id) suprimer

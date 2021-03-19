@@ -1,0 +1,9 @@
+%syntax-version=1.0.0
+%project=o_parck
+
+init 2021-02-08T09:52:14Z Julien Rodriguez <pro.julienrodriguez@gmail.com> # Initialisation de la base de donné
+create_ACL 2021-02-08T10:58:10Z Julien Rodriguez <pro.julienrodriguez@gmail.com> # Creation des roles oparck_maintenance et oparck_reservation
+tracing-issue 2021-02-08T15:03:49Z Julien Rodriguez <pro.julienrodriguez@gmail.com> # Création d'une table pour archiver les issue close
+change_type 2021-02-09T08:04:53Z Julien Rodriguez <pro.julienrodriguez@gmail.com> # Update des type de la bdd
+veiw_reservation 2021-02-09T10:57:57Z Julien Rodriguez <pro.julienrodriguez@gmail.com> # création de la view reservation
+remove_impact 2021-02-09T13:12:07Z Julien Rodriguez <pro.julienrodriguez@gmail.com> # remove table impact and add attraction_id to incident
